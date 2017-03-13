@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>TLE | {{category}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+  <h2 class="page-title">{{headline}}</h2>
+  <h3 class="sub-title"></h3>
+  <img src="/assets/img/German-Wings.jpg" class="headline-image">
+  <h4 class="byline">{{author}} | {{pubDate | date:'longDate'}}</h4>
+  <div class="story-content" ng-bind-html-unsafe="html">{{content}}</div>
+
+</ion-content>
