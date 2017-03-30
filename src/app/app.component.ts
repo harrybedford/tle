@@ -2,18 +2,18 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
+import { Home } from '../pages/home/home';
+import { Category } from '../pages/category/category';
 import { Story } from '../pages/story/story';
 
 
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class TLE {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = Home;
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,15 +22,15 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Latest News', component: Page1 },
-      { title: 'Sport', component: Page2 },
-      { title: 'Entertainment', component: Page2 },
-      { title: 'Sport', component: Page2 },
-      { title: 'Film', component: Page2 },
-      { title: 'Lifestyle', component: Page2 },
-      { title: 'Travel', component: Page2 },
-      { title: 'Food', component: Page2 },
-      { title: 'Property', component: Page2 },
+      { title: 'Latest News', component: Home },
+      { title: 'Sport', component: Category },
+      { title: 'Entertainment', component: Category },
+      { title: 'Sport', component: Category },
+      { title: 'Film', component: Category },
+      { title: 'Lifestyle', component: Category },
+      { title: 'Travel', component: Category },
+      { title: 'Food', component: Category },
+      { title: 'Property', component: Category },
       { title: 'Story', component: Story}
     ];
 

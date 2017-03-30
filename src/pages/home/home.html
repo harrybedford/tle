@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>The London Economic</ion-title>
+        <img src="assets/img/tle.jpg" class="logo" />
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="trending">
+        <div class="trending-name">Trending</div>
+        <div class="trender">
+            <p>Trump becomes 45th President</p>
+        </div>
+    </div>
+
+    <a [navPush]="story">
+    <div class="headline">
+        <img src="assets/img/Trump-Devil.jpg" class="headline-image" />
+        <h3 class="headline-text"><span class="top-story">TOP STORY: </span>We need to talk about Nazi Germany</h3>
+    </div>
+    </a>
+
+    <div class="section" *ngFor="let category of categories">
+        <h4 class="section-title">{{category.name}}</h4>
+        <div class="story">
+            <img [src]="category.stories[0].image" class="story-image" />
+            <p class="story-title">{{category.stories[0].headline}}</p>
+            <p class="story-date">{{category.stories[0].date}}</p>
+        </div>
+        <div class="story">
+            <img [src]="category.stories[1].image" class="story-image" />
+            <p class="story-title">{{category.stories[1].headline}}</p>
+            <p class="story-date">{{category.stories[1].date}}</p>
+        </div>
+        <div class="older-story">{{category.stories[2].headline}}</div>
+        <div class="older-story">{{category.stories[3].headline}}</div>
+        <div class="older-story">{{category.stories[4].headline}}</div>
+    </div>
+
+</ion-content>
