@@ -15,6 +15,12 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+h1, h2, h3, h4, p, div, button, span{
+	font-family: 'Montserrat', sans-serif;
+}
+
 	.logo {
 	    height: 50px;
 	    position: absolute;
@@ -27,20 +33,21 @@
 	}
 
 	.toolbar{
-		border-bottom: 2px solid red;
+		border-bottom: 2px solid #E4686A;
 	}
 
 	.toolbar-title {
 		color: white;
-		font-family: 'Lora', serif;
+		font-family: 'Montserrat', sans-serif;
+		padding: 0;
 	}
 
 	.ion-title{
 		padding: 20px 40px;
 	}
 
-	.bar-button{
-		color: white;
+	.bar-button {
+	    color: #E4686A;
 	}
 
 	.bar-button:hover{
@@ -51,13 +58,15 @@
 		width: 100%;
 		padding-bottom: 10px;
 		border-bottom: 1px solid black;
-		background-color: #e8e8e8;
+		background-color: #231f20;
+		margin-bottom: 20px;
 		.headline-image {
 			width: 100%;
 		}
 		.headline-text{
 			text-transform: capitalize;
 			padding: 0 16px;
+			color: white;
 			.top-story{
 				color: red;
 				text-transform: uppercase;
@@ -71,23 +80,23 @@
 		height: 30px;
 		.trending-name{
 			width: 30%;
-			color: red;
+			color: #E4686A;
 			height: 30px;
 			text-transform: uppercase;
-			background-color: black;
-			font-size: 20px;
+			background-color: #231f20;
+			font-size: 14px;
+			font-weight: bold;
 			line-height: 30px;
 			text-align: center;
-			font-style: italic;
 			float: left;
-			border-top: 1px solid red;
-			border-bottom: 1px solid red;
-			border-right: 1px solid red;
+			//border-right: 1px solid #E4686A;
+			border-bottom: 2px solid #E4686A;
 		}
 		.trender {
 			height: 30px;	
 			overflow: hidden;
 			position: relative;
+			border-bottom: 2px solid #E4686A;
 		}
 		.trender p {
 			float: left;
@@ -132,41 +141,82 @@
 
 	.section{
 		width: 100%;
-		margin-bottom: 50px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid black;
+		margin-bottom: 20px;
+		h4.section-title{
+			padding-left: 2%;
+			text-transform: capitalize;
+			font-size: 25px;
+		}
+		.story {
+			float: left;
+			width: 46%;
+			height: 200px;
+			overflow: hidden;
+			margin: 0 2% 10px;
+			position: relative;
+			border: 1px solid #E4686A;
+			background-color: #231f20;
+			.story-image{
+				width: 100%;
+				height: 120px;
+			}
+			.story-title{
+				padding: 5px;
+				margin: 0;
+				font-size: 12px;
+				color: white;
+			}
+			.story-date{
+				padding: 0 5px 5px;
+				margin: 0;
+				font-size: 10px;
+				color: #E4686A;
+			}
+		}
+
+		.older-story{
+			width: 96%;
+			display: block;
+			margin: 10px 2%;
+			padding: 0 2% 5px;
+			background-color: #231f20;
+			color: white;
+			display: inline-block;
+			border: 2px solid #E4686A;
+		}
 	}
 
-	h4.section-title{
-		padding-left: 2%;
-		text-transform: capitalize;
+	.section:nth-last-child(1){
+		border-bottom: none;
 	}
 
-	.story {
-		float: left;
-		width: 46%;
-		height: 200px;
-		overflow: hidden;
-		margin: 0 2% 20px;
-		position: relative;
-		border: 1px solid gray;
-		.story-image{
-			width: 100%;
-			height: 120px;
+	.category-stories{
+		.story {
+			float: left;
+			width: 46%;
+			height: 200px;
+			overflow: hidden;
+			margin: 0 2% 10px;
+			position: relative;
+			border: 1px solid #E4686A;
+			background-color: #231f20;
+			.story-image{
+				width: 100%;
+				height: 120px;
+			}
+			.story-title{
+				padding: 5px;
+				margin: 0;
+				font-size: 12px;
+				color: white;
+			}
+			.story-date{
+				padding: 0 5px 5px;
+				margin: 0;
+				font-size: 10px;
+				color: #E4686A;
+			}
 		}
-		.story-title{
-			padding: 5px;
-			margin: 0;
-			font-size: 14px;
-		}
-		.story-date{
-			padding: 0 5px 5px;
-			margin: 0;
-			font-size: 10px;
-			color: gray;
-		}
-	}
-
-	.older-story{
-		width: 96%;
-		display: block;
-		margin: 0 2% 10px;
 	}

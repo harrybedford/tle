@@ -1,22 +1,12 @@
 page-story{
-	h1, h2, h3, h4, p{
-		font-family: 'Sahitya', serif;
-		padding: 5px 2%;
+
+	.story-content{
+		padding: 0 2%;
 	}
 
-	.content-md {
-	    color: #2b2b2b;
-	    background-color: white;
+	.byline{
+		padding: 0 2%;
+		color: #E4686A;
 	}
 
-	.toolbar-title{
-		font-family: 'Sahitya', serif;
-		text-transform: capitalize;
-		text-align: left;
-	}
-
-	.headline-image{
-		width: 100%;
-
-	}
 }

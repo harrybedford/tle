@@ -25,13 +25,12 @@ export class TLE {
       { title: 'Latest News', component: Home },
       { title: 'Sport', component: Category },
       { title: 'Entertainment', component: Category },
-      { title: 'Sport', component: Category },
       { title: 'Film', component: Category },
       { title: 'Lifestyle', component: Category },
       { title: 'Travel', component: Category },
       { title: 'Food', component: Category },
       { title: 'Property', component: Category },
-      { title: 'Story', component: Story}
+      { title: 'Story', component: Story }
     ];
 
   }

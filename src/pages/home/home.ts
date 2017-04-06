@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav, Platform, NavController } from 'ionic-angular';
 
 import { Story } from '../story/story';
 
@@ -13,7 +12,11 @@ export class Home {
 
     constructor(public navCtrl: NavController) { }
 
-    story = Story;
+    @ViewChild(Nav) nav: Nav;
+
+    // openPage(page) {
+    //     this.navCtrl.push(page);
+    //   }
 
     categories = [{
             name: 'news',

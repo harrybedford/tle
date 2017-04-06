@@ -13,16 +13,14 @@
     <div class="trending">
         <div class="trending-name">Trending</div>
         <div class="trender">
-            <p>Trump becomes 45th President</p>
+            <p>CLIMATE CHANGE COULD DECIMATE COFFEE CROPS | KRAY’S PRISON SET TO BE TURNED INTO STUDENT ACCOMMODATION | HUSBAND AND WIFE TO STAND AGAINST EACH OTHER IN COUNCIL ELECTIONS</p>
         </div>
     </div>
 
-    <a [navPush]="story">
-    <div class="headline">
-        <img src="assets/img/Trump-Devil.jpg" class="headline-image" />
-        <h3 class="headline-text"><span class="top-story">TOP STORY: </span>We need to talk about Nazi Germany</h3>
+    <div class="headline" (click)="navCtrl.push(Story)">
+        <img src="http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1023px-Houses.of_.parliament.overall.arp_.jpg" class="headline-image" />
+        <h3 class="headline-text">Brexit: Parliament must ensure trade deals don’t make world’s poorest poorer</h3>
     </div>
-    </a>
 
     <div class="section" *ngFor="let category of categories">
         <h4 class="section-title">{{category.name}}</h4>
