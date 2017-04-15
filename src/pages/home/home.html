@@ -19,24 +19,24 @@
 
     <div class="headline" (click)="navCtrl.push(Story)">
         <img src="http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1023px-Houses.of_.parliament.overall.arp_.jpg" class="headline-image" />
-        <h3 class="headline-text">Brexit: Parliament must ensure trade deals don’t make world’s poorest poorer</h3>
+        <h3 class="headline-text"></h3>
     </div>
 
     <div class="section" *ngFor="let category of categories">
         <h4 class="section-title">{{category.name}}</h4>
         <div class="story">
             <img [src]="category.stories[0].image" class="story-image" />
-            <p class="story-title">{{category.stories[0].headline}}</p>
+            <p class="story-title" [innerHTML]="category.stories[0].title"></p>
             <p class="story-date">{{category.stories[0].date}}</p>
         </div>
         <div class="story">
             <img [src]="category.stories[1].image" class="story-image" />
-            <p class="story-title">{{category.stories[1].headline}}</p>
+            <p class="story-title">{{category.stories[1].title}}</p>
             <p class="story-date">{{category.stories[1].date}}</p>
         </div>
-        <div class="older-story">{{category.stories[2].headline}}</div>
-        <div class="older-story">{{category.stories[3].headline}}</div>
-        <div class="older-story">{{category.stories[4].headline}}</div>
+        <div class="older-story">{{category.stories[2].title}}</div>
+        <div class="older-story">{{category.stories[3].title}}</div>
+        <div class="older-story">{{category.stories[4].title}}</div>
     </div>
 
 </ion-content>

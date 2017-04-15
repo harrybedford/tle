@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, NavController } from 'ionic-angular';
-
-import { Story } from '../story/story';
+import * as moment  from 'moment';
+import { DataService } from '../../services/DataService';
+import { CATEGORIES } from '../../mocks/categories';
 
 @Component({
     selector: 'page-home',
@@ -10,223 +11,26 @@ import { Story } from '../story/story';
 
 export class Home {
 
-    constructor(public navCtrl: NavController) { }
+    constructor(public navCtrl: NavController,
+                private dataService: DataService) { }
 
     @ViewChild(Nav) nav: Nav;
 
-    // openPage(page) {
-    //     this.navCtrl.push(page);
-    //   }
+    categories = CATEGORIES;
 
-    categories = [{
-            name: 'news',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        },{
-            name: 'sport',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        },{
-            name: 'entertainment',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        },{
-            name: 'film',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        },{
-            name: 'lifestyle',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        },{
-            name: 'travel',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        },{
-            name: 'food',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        },{
-            name: 'tech',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        },{
-            name: 'property',
-            stories: [{
-                headline: 'Brexit Brussels: Lloyds Of London Sets Up In Brussels',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1280px-Lloyds.building.london.arp_.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Trump hires his daughter to join step son in incestuous administration',
-                image: 'http://www.thelondoneconomic.com/wp-content/uploads/2017/03/Trump.jpg',
-                date: 'March 30, 2017'
-            },{
-                headline: 'Government misses teacher recruitment target for fifth consecutive year – by a lot',
-                image: '',
-                date: ''
-            },{
-                headline: 'Campaigners Chain Themselves to Plane To Block Deportation Flight',
-                image: '',
-                date: ''
-            },{
-                headline: 'PMQs 29th March – “Goodbye at Dover, goodbye my friend, you have been the one for me”',
-                image: '',
-                date: ''
-            }]
-        }
-    ]
+    ngOnInit() {
+
+        this.dataService.getCategory$('sport').subscribe((data) => {
+                this.categories[1].name = data.category.title;
+                this.categories[1].stories[0].title = data.posts[0].title;
+                this.categories[1].stories[0].image = data.posts[0].thumbnail;
+                this.categories[1].stories[0].date = moment(data.posts[0].date).format('MMMM Do, YYYY');
+                this.categories[1].stories[1].title = data.posts[1].title;
+                this.categories[1].stories[1].image = data.posts[1].thumbnail;
+                this.categories[1].stories[1].date = moment(data.posts[1].date).format('MMMM Do, YYYY');
+        });
+
+    }
 
 
 

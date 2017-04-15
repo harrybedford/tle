@@ -9,4 +9,14 @@ page-story{
 		color: #E4686A;
 	}
 
+	.story-content{
+		img{
+			width: 100% !important;
+			height: auto !important;
+		}
+		.insert-post-ads{
+			display: none;
+		}
+	}
+
 }

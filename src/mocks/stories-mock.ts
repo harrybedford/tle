@@ -1,6 +1,5 @@
-export class Stories {
-	
-	list = [{
+export const STORIES: Array<Object> = [
+	{
 		headline: 'headline',
 		date: '10th February',
 		imageUrl: 'assets/img/Trump-Devil.jpg'
@@ -24,6 +23,5 @@ export class Stories {
 		headline: 'headline',
 		date: '10th February',
 		imageUrl: 'assets/img/Trump-Devil.jpg'
-    }];
-
-};
+    }
+]
