@@ -7,21 +7,17 @@
         <img src="assets/img/tle.jpg" class="logo" />
     </ion-navbar>
 </ion-header>
-
 <ion-content>
-
 	<div class="headline">
-        <img src="http://www.thelondoneconomic.com/wp-content/uploads/2015/08/Chelsea-e1438954937820.jpg" />
-        <h3 class="headline-text">If N’Golo Kante doesn’t win PFA Player of the Year, football is unofficially dead</h3>
+        <img [src]="headline.image" />
+        <h3 class="headline-text" [innerHTML]="headline.title"></h3>
     </div>
-
   	<div class="category-stories">
 	    <div *ngFor="let story of stories" class="story">
-	        <img [src]="story.image" class="story-image" />
-	        <p class="story-title">{{story.headline}}</p>
+            <div class="story-image" [ngStyle]="{'background-image': 'url(' + story.image + ')'}"></div>
+	        <p class="story-title">{{story.title}}</p>
 	        <p class="story-date">{{story.date}}</p>
 	    </div>
     </div>
     <button ion-button full color="dark">Load More +</button>
-
 </ion-content>

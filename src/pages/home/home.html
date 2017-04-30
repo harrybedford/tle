@@ -7,36 +7,31 @@
         <img src="assets/img/tle.jpg" class="logo" />
     </ion-navbar>
 </ion-header>
-
 <ion-content>
-
     <div class="trending">
         <div class="trending-name">Trending</div>
         <div class="trender">
             <p>CLIMATE CHANGE COULD DECIMATE COFFEE CROPS | KRAY’S PRISON SET TO BE TURNED INTO STUDENT ACCOMMODATION | HUSBAND AND WIFE TO STAND AGAINST EACH OTHER IN COUNCIL ELECTIONS</p>
         </div>
     </div>
-
     <div class="headline" (click)="navCtrl.push(Story)">
-        <img src="http://www.thelondoneconomic.com/wp-content/uploads/2017/03/1023px-Houses.of_.parliament.overall.arp_.jpg" class="headline-image" />
-        <h3 class="headline-text"></h3>
+        <img [src]="headline.image" class="headline-image" />
+        <h3 class="headline-text" [innerHTML]="headline.title"></h3>
     </div>
-
     <div class="section" *ngFor="let category of categories">
-        <h4 class="section-title">{{category.name}}</h4>
+        <h4 class="section-title" [innerHTML]="category.name"></h4>
         <div class="story">
-            <img [src]="category.stories[0].image" class="story-image" />
+            <div class="story-image" [ngStyle]="{'background-image': 'url(' + category.stories[0].image + ')'}"></div>
             <p class="story-title" [innerHTML]="category.stories[0].title"></p>
             <p class="story-date">{{category.stories[0].date}}</p>
         </div>
         <div class="story">
-            <img [src]="category.stories[1].image" class="story-image" />
-            <p class="story-title">{{category.stories[1].title}}</p>
+            <div class="story-image" [ngStyle]="{'background-image': 'url(' + category.stories[1].image + ')'}"></div>
+            <p class="story-title" [innerHTML]="category.stories[1].title"></p>
             <p class="story-date">{{category.stories[1].date}}</p>
         </div>
-        <div class="older-story">{{category.stories[2].title}}</div>
-        <div class="older-story">{{category.stories[3].title}}</div>
-        <div class="older-story">{{category.stories[4].title}}</div>
+        <div class="older-story" [innerHTML]="category.stories[2].title"></div>
+        <div class="older-story" [innerHTML]="category.stories[3].title"></div>
+        <div class="older-story" [innerHTML]="category.stories[4].title"></div>
     </div>
-
 </ion-content>

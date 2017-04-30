@@ -152,23 +152,23 @@ h1, h2, h3, h4, p, div, button, span{
 		.story {
 			float: left;
 			width: 46%;
-			height: 200px;
+			height: 225px;
 			overflow: hidden;
 			margin: 0 2% 10px;
 			position: relative;
-			border: 1px solid #E4686A;
 			background-color: #231f20;
-			.story-image{
+			.story-image {
 				width: 100%;
 				height: 120px;
+				background-size: cover;
 			}
-			.story-title{
+			.story-title {
 				padding: 5px;
 				margin: 0;
 				font-size: 12px;
 				color: white;
 			}
-			.story-date{
+			.story-date {
 				padding: 0 5px 5px;
 				margin: 0;
 				font-size: 10px;
@@ -176,11 +176,11 @@ h1, h2, h3, h4, p, div, button, span{
 			}
 		}
 
-		.older-story{
+		.older-story {
 			width: 96%;
 			display: block;
 			margin: 10px 2%;
-			padding: 0 2% 5px;
+			padding: 5px 2% 5px;
 			background-color: #231f20;
 			color: white;
 			display: inline-block;
@@ -196,15 +196,15 @@ h1, h2, h3, h4, p, div, button, span{
 		.story {
 			float: left;
 			width: 46%;
-			height: 200px;
+			height: 225px;
 			overflow: hidden;
 			margin: 0 2% 10px;
 			position: relative;
-			border: 1px solid #E4686A;
 			background-color: #231f20;
 			.story-image{
 				width: 100%;
 				height: 120px;
+				background-size: cover;
 			}
 			.story-title{
 				padding: 5px;
