@@ -3,18 +3,58 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>TLE | {{story.category}}</ion-title>
+        <ion-title>TLE | <span [innerHTML]="story.category"></span></ion-title>
         <img src="assets/img/tle.jpg" class="logo" />
     </ion-navbar>
 </ion-header>
-
-<ion-content>
+<ion-content [hidden]="cloak">
     <div class="headline">
         <img [src]="story.image" class="headline-image" />
         <h3 class="headline-text" [innerHTML]="story.title"></h3>
+        <div class="share">
+            <a [href]="'https://www.facebook.com/sharer/sharer.php?u=' + story.url" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a [href]="'https://twitter.com/home?status=' + story.url" target="_blank">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a [href]="'https://www.linkedin.com/shareArticle?mini=true&url=' + story.url + '&title=' + story.title" target="_blank">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a [href]="'https://plus.google.com/share?url=' + story.url" target="_blank">
+                <ion-icon name="logo-googleplus"></ion-icon>
+            </a>
+            <a [href]="'mailto:?&subject=' + story.title +'&body=Check%20out%20this%20The%20London%20Economic%20article%20%E2%80%93%20' + story.url">
+                <ion-icon name="mail"></ion-icon>
+            </a>
+        </div>
     </div>
-    <h4 class="byline">By {{story.author}} on {{story.date}}</h4>
-    <div class="story-content" [innerHTML]="story.content">
-    </div>
-
+    <h4 class="byline" [innerHTML]="story.author + ' | ' + story.date"></h4>
+    <div class="story-content" [innerHTML]="story.content"></div>
+    <footer>
+        <div class="copyright">
+            <p>
+                Copyright 2016<br />
+                TheLondonEconomic.com<br />
+                All Rights Reserved
+            </p>
+        </div>
+        <div class="share">
+            <a [href]="'https://www.facebook.com/sharer/sharer.php?u=' + story.url" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a [href]="'https://twitter.com/home?status=' + story.url" target="_blank">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a [href]="'https://www.linkedin.com/shareArticle?mini=true&url=' + story.url + '&title=' + story.title" target="_blank">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a [href]="'https://plus.google.com/share?url=' + story.url" target="_blank">
+                <ion-icon name="logo-googleplus"></ion-icon>
+            </a>
+            <a [href]="'mailto:?&subject=' + story.title +'&body=Check%20out%20this%20The%20London%20Economic%20article%20%E2%80%93%20' + story.url">
+                <ion-icon name="mail"></ion-icon>
+            </a>
+        </div>
+    </footer>
 </ion-content>

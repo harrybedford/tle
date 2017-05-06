@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import * as moment  from 'moment';
 import { DataService } from '../../services/DataService';
 import { Headline } from '../../models/headline';
 import { HEADLINE } from '../../mocks/headline';
-import { Story } from '../../models/story';
 import { STORIES } from '../../mocks/category-stories';
+import { Story } from '../story/story';
 
 
 @Component({
@@ -17,10 +17,12 @@ export class Category {
 
 	constructor(public navCtrl: NavController, 
 				public navParams: NavParams,
+				public loadingCtrl: LoadingController,
 				private dataService: DataService) { }
 
 	public ngOnInit(): void {
-		this.dataService.getCategory$(this.category).subscribe(
+		this.loading.present();
+		this.dataService.getCategory$(this.navParams.get('slug')).subscribe(
 			data => {
 				this.headline.id = data.posts[0].id;
                 this.headline.title = data.posts[0].title;
@@ -32,13 +34,33 @@ export class Category {
                     this.stories[i].image = data.posts[i + 1].thumbnail_images.medium.url;
                     this.stories[i].date = moment(data.posts[i + 1].date).format('MMMM Do, YYYY');
                 }
+                this.loading.dismiss();
+                this.cloak = false;
+			},
+			error => {
+				this.loading.dismiss();
+				return error;
 			}
 		);
 	}
 
+	public refresh(refresher): void {
+        this.navCtrl.setRoot(this.navCtrl.getActive().component, {category: this.navParams.get('category'), slug: this.navParams.get('slug')});
+    }
+
+    public loadMore(): void {
+    	//load more data
+    }
+
+	public loading = this.loadingCtrl.create({content: 'Loading...'});
+
+	public cloak: boolean = true;
+
+	public pushPage = Story;
+
 	public headline: Headline = HEADLINE;
 
-	public category: string = 'Sport';
+	public category: string = this.navParams.get('category');
 
 	public stories: any = STORIES;
 

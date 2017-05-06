@@ -7,31 +7,35 @@
         <img src="assets/img/tle.jpg" class="logo" />
     </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content [hidden]="cloak">
     <div class="trending">
         <div class="trending-name">Trending</div>
         <div class="trender">
             <p>CLIMATE CHANGE COULD DECIMATE COFFEE CROPS | KRAY’S PRISON SET TO BE TURNED INTO STUDENT ACCOMMODATION | HUSBAND AND WIFE TO STAND AGAINST EACH OTHER IN COUNCIL ELECTIONS</p>
         </div>
     </div>
-    <div class="headline" (click)="navCtrl.push(Story)">
+    <ion-refresher (ionRefresh)="refresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="headline" [navPush]="pushPage" [navParams]="{id: headline.id}">
         <img [src]="headline.image" class="headline-image" />
         <h3 class="headline-text" [innerHTML]="headline.title"></h3>
     </div>
     <div class="section" *ngFor="let category of categories">
         <h4 class="section-title" [innerHTML]="category.name"></h4>
-        <div class="story">
+        <div class="story" [navPush]="pushPage" [navParams]="{id: category.stories[0].id}">
             <div class="story-image" [ngStyle]="{'background-image': 'url(' + category.stories[0].image + ')'}"></div>
             <p class="story-title" [innerHTML]="category.stories[0].title"></p>
             <p class="story-date">{{category.stories[0].date}}</p>
         </div>
-        <div class="story">
+        <div class="story" [navPush]="pushPage" [navParams]="{id: category.stories[1].id}">
             <div class="story-image" [ngStyle]="{'background-image': 'url(' + category.stories[1].image + ')'}"></div>
             <p class="story-title" [innerHTML]="category.stories[1].title"></p>
             <p class="story-date">{{category.stories[1].date}}</p>
         </div>
-        <div class="older-story" [innerHTML]="category.stories[2].title"></div>
-        <div class="older-story" [innerHTML]="category.stories[3].title"></div>
-        <div class="older-story" [innerHTML]="category.stories[4].title"></div>
+        <div class="older-story" [innerHTML]="category.stories[2].title" [navPush]="pushPage" [navParams]="{id: category.stories[2].id}"></div>
+        <div class="older-story" [innerHTML]="category.stories[3].title" [navPush]="pushPage" [navParams]="{id: category.stories[3].id}"></div>
+        <div class="older-story" [innerHTML]="category.stories[4].title" [navPush]="pushPage" [navParams]="{id: category.stories[4].id}"></div>
     </div>
+    <img src="assets/img/fake.jpg" class="fake" />
 </ion-content>

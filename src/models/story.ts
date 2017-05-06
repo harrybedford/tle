@@ -1,4 +1,4 @@
-export class Story {
+export class StoryModel {
 	id: number;
 	title: string;
 	image: string;

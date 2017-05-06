@@ -3,21 +3,27 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>TLE | {{category}}</ion-title>
+        <ion-title>TLE | <span [innerHTML]="category"></span></ion-title>
         <img src="assets/img/tle.jpg" class="logo" />
     </ion-navbar>
 </ion-header>
-<ion-content>
-	<div class="headline">
+<ion-content [hidden]="cloak">
+    <ion-refresher (ionRefresh)="refresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+	<div class="headline" [navPush]="pushPage" [navParams]="{id: headline.id}">
         <img [src]="headline.image" />
         <h3 class="headline-text" [innerHTML]="headline.title"></h3>
     </div>
   	<div class="category-stories">
-	    <div *ngFor="let story of stories" class="story">
+	    <div *ngFor="let story of stories" class="story" [navPush]="pushPage" [navParams]="{id: story.id}">
             <div class="story-image" [ngStyle]="{'background-image': 'url(' + story.image + ')'}"></div>
-	        <p class="story-title">{{story.title}}</p>
-	        <p class="story-date">{{story.date}}</p>
+	        <p class="story-title" [innerHTML]="story.title"></p>
+	        <p class="story-date" [innerHTML]="story.date"></p>
 	    </div>
     </div>
-    <button ion-button full color="dark">Load More +</button>
+    <button ion-button full color="dark" class="more" (click)="loadMore()">
+        Load More&nbsp;
+        <span class="red">+</span>
+    </button>
 </ion-content>

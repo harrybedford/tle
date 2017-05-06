@@ -21,11 +21,42 @@ h1, h2, h3, h4, p, div, button, span{
 	font-family: 'Montserrat', sans-serif;
 }
 
+ion-refresher {
+	background-color: #231f20 !important;
+	border-bottom: 2px solid #E4686A;
+	circle {
+		stroke: #E4686A !important;
+	}
+	.refresher-pulling-icon {
+		color: #E4686A !important;
+	}
+}
+
+.red {
+	color: #E4686A;
+	font-size: 25px;
+}
+
 	.logo {
 	    height: 50px;
 	    position: absolute;
 	    right: 12px;
 	    top: 2px;
+	}
+
+	.list .item-block .item-inner {
+	    border-bottom: 1px solid #E4686A;
+	}
+
+	.menu-inner{
+		.content{
+			background-color: #231f20;
+			color: white;
+			.item{
+				background-color: transparent;
+				color: white;
+			}
+		}
 	}
 
 	.toolbar-background {
@@ -51,13 +82,13 @@ h1, h2, h3, h4, p, div, button, span{
 	}
 
 	.bar-button:hover{
-		color: red;
+		color: #E4686A;
 	}
 
-	.headline{
+	.headline {
 		width: 100%;
 		padding-bottom: 10px;
-		border-bottom: 1px solid black;
+		border-bottom: 2px solid #E4686A;
 		background-color: #231f20;
 		margin-bottom: 20px;
 		.headline-image {
@@ -68,11 +99,17 @@ h1, h2, h3, h4, p, div, button, span{
 			padding: 0 16px;
 			color: white;
 			.top-story{
-				color: red;
+				color: #E4686A;
 				text-transform: uppercase;
 				font-style: italic;
 			}
 		}
+	}
+
+	.loading-wrapper {
+		background-color: #231f20 !important;
+		color: white !important;
+		border: 2px solid #E4686A;
 	}
 
 	.trending{
@@ -188,7 +225,7 @@ h1, h2, h3, h4, p, div, button, span{
 		}
 	}
 
-	.section:nth-last-child(1){
+	.section:nth-last-child(2){
 		border-bottom: none;
 	}
 
