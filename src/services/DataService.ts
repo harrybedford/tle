@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Jsonp, URLSearchParams } from '@angular/http';
+import { Jsonp, URLSearchParams, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -8,7 +8,8 @@ import 'rxjs/add/operator/catch';
 
 export class DataService {
 
-	constructor(private jsonp: Jsonp) {}
+	constructor(private jsonp: Jsonp,
+				private http: Http) {}
 
 	public getStory$(id): Observable<any> {
 		let params = new URLSearchParams();
@@ -33,7 +34,7 @@ export class DataService {
 		params.set('format', 'json');
 		params.set('callback', 'JSONP_CALLBACK');
 		return this.jsonp
-			.get('http://www.thelondoneconomic.com/tag/headline/?json=1', { search: params })
+			.get('http://www.thelondoneconomic.com/tag/headline/?json=1&count=1', { search: params })
 			.map(response => response.json());
 	}
 
