@@ -3,8 +3,10 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title [hidden]="cloak">TLE | <span [innerHTML]="story.category"></span></ion-title>
-        <img src="assets/img/tle.jpg" class="logo" />
+        <ion-title>
+            <h1 [hidden]="cloak">TLE | <span [innerHTML]="story.category"></span></h1>
+            <img src="assets/img/tle.jpg" class="logo" />
+        </ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content [hidden]="cloak">
