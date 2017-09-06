@@ -50,7 +50,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('news').subscribe(
+        this.dataService.getCategory$('news', 1).subscribe(
             data => {
                 this.categories[0].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {
@@ -67,7 +67,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('sport').subscribe(
+        this.dataService.getCategory$('sport', 1).subscribe(
             data => {
                 this.categories[1].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {
@@ -82,7 +82,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('entertainment').subscribe(
+        this.dataService.getCategory$('entertainment', 1).subscribe(
             data => {
                 this.categories[2].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {
@@ -97,7 +97,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('film').subscribe(
+        this.dataService.getCategory$('film', 1).subscribe(
             data => {
                 this.categories[3].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {
@@ -112,7 +112,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('lifestyle').subscribe(
+        this.dataService.getCategory$('lifestyle', 1).subscribe(
             data => {
                 this.categories[4].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {
@@ -127,7 +127,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('travel').subscribe(
+        this.dataService.getCategory$('travel', 1).subscribe(
             data => {
                 this.categories[5].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {
@@ -142,7 +142,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('food-drink').subscribe(
+        this.dataService.getCategory$('food-drink', 1).subscribe(
             data => {
                 this.categories[6].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {
@@ -157,7 +157,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('tech-auto').subscribe(
+        this.dataService.getCategory$('tech-auto', 1).subscribe(
             data => {
                 this.categories[7].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {
@@ -172,7 +172,7 @@ export class Home {
             }
         );
 
-        this.dataService.getCategory$('property').subscribe(
+        this.dataService.getCategory$('property', 1).subscribe(
             data => {
                 this.categories[8].name = data.category.title;
                 for (let i = 0; i < 5; i ++) {

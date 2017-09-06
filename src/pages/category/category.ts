@@ -22,20 +22,31 @@ export class Category {
 
 	public ngOnInit(): void {
 		this.loading.present();
-		this.dataService.getCategory$(this.navParams.get('slug')).subscribe(
+		this.getStories();
+	}
+
+	public getStories(): void {
+		this.loadText = 'Loading...';
+		this.dataService.getCategory$(this.navParams.get('slug'), this.count).subscribe(
 			data => {
-				this.headline.id = data.posts[0].id;
-                this.headline.title = data.posts[0].title;
-                this.headline.image = data.posts[0].thumbnail_images.full.url;
-                this.headline.date = data.posts[0].date;
-                for (let i = 0; i < 8; i ++) {
-                    this.stories[i].id = data.posts[i + 1].id;
-                    this.stories[i].title = data.posts[i + 1].title;
-                    this.stories[i].image = data.posts[i + 1].thumbnail_images.medium.url;
-                    this.stories[i].date = moment(data.posts[i + 1].date).format('MMMM Do, YYYY');
+				if (this.count === 1) {
+					this.headline.id = data.posts[0].id;
+	                this.headline.title = data.posts[0].title;
+	                this.headline.image = data.posts[0].thumbnail_images.full.url;
+	                this.headline.date = data.posts[0].date;
+	            }
+                for (let i = 0; i < data.posts.length; i ++) {
+                	let story = {
+                		id: data.posts[i].id,
+                		title: data.posts[i].title,
+                		image: data.posts[i].thumbnail_images.medium.url,
+                		date: moment(data.posts[i].date).format('MMMM Do, YYYY')
+                	};
+                    this.stories.push(story);
                 }
                 this.loading.dismiss();
                 this.cloak = false;
+                this.loadText = 'Load More';
 			},
 			error => {
 				this.loading.dismiss();
@@ -49,7 +60,8 @@ export class Category {
     }
 
     public loadMore(): void {
-    	//load more data
+    	this.count ++;
+    	this.getStories();
     }
 
 	public loading = this.loadingCtrl.create({content: 'Loading...'});
@@ -62,6 +74,10 @@ export class Category {
 
 	public category: string = this.navParams.get('category');
 
-	public stories: any = STORIES;
+	public count: number = 1;
+
+	public stories: any = [];
+
+	public loadText: string = 'Load More';
 
 }

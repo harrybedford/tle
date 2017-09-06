@@ -20,12 +20,12 @@ export class DataService {
 			.map(response => response.json());
 	}
 
-	public getCategory$(category): Observable<any> {
+	public getCategory$(category, count): Observable<any> {
 		let params = new URLSearchParams();
 		params.set('format', 'json');
 		params.set('callback', 'JSONP_CALLBACK');
 		return this.jsonp
-			.get('http://www.thelondoneconomic.com/' + category + '?json=1&exclude=content,excerpt', { search: params })
+			.get('http://www.thelondoneconomic.com/' + category + '/page/' + count +'?json=1&exclude=content,excerpt', { search: params })
 			.map(response => response.json());
 	}
 

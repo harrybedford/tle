@@ -1,7 +1,11 @@
 page-category {
-	button.more {
-		margin: 50px 0 25px !important;
-		border-top: 2px solid #E4686A;
-		border-bottom: 2px solid #E4686A;
+	.story:nth-child(1) {
+		display: none;
+	}
+	.story.load-more {
+		color: white;
+		font-size: 30px;
+		text-align: center;
+		padding: 30px;
 	}
 }

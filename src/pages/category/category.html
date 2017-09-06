@@ -23,9 +23,8 @@
 	        <p class="story-title" [innerHTML]="story.title"></p>
 	        <p class="story-date" [innerHTML]="story.date"></p>
 	    </div>
+        <div class="story load-more" (click)="loadMore()">
+            {{ loadText }}
+        </div>
     </div>
-    <button ion-button full color="dark" class="more" (click)="loadMore()">
-        Load More&nbsp;
-        <span class="red">+</span>
-    </button>
 </ion-content>
