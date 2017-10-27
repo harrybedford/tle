@@ -41,7 +41,7 @@ export class Story {
 					date: moment(data.post.date).format('MMMM Do, YYYY'),
 					author: data.post.author.name,
 					category: data.post.categories[0].title,
-					content: data.post.content,
+					content: this.stripScripts(data.post.content),
 					url: data.post.url
 				}
 				this.loading.dismiss();
@@ -49,5 +49,16 @@ export class Story {
 	        }
         );
     }
+
+    private stripScripts(s) {
+		var div = document.createElement('div');
+		div.innerHTML = s;
+		var scripts = div.getElementsByTagName('script');
+		var i = scripts.length;
+		while (i--) {
+			scripts[i].parentNode.removeChild(scripts[i]);
+		}
+		return div.innerHTML;
+	}
 
 }
