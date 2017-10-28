@@ -4,6 +4,10 @@ h1, h2, h3, h4, p, div, button, span{
 	font-family: 'Montserrat', sans-serif;
 }
 
+.has-refresher > .scroll-content {
+    border-top: none;
+}
+
 .toolbar-ios {
 	min-height: 50px;
 	ion-title {
